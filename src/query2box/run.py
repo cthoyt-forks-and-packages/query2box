@@ -172,8 +172,11 @@ def log_metrics(mode, step, metrics):
     '''
     for metric in metrics:
         logging.info('%s %s at step %d: %f' % (mode, metric, step, metrics[metric]))
-        
-def main(args):
+
+def main():
+    main_helper(parse_args())
+
+def main_helper(args):
     set_global_seed(args.seed)
     args.test_batch_size = 1
     assert args.bn in ['no', 'before', 'after']
@@ -933,4 +936,4 @@ def main(args):
 
 
 if __name__ == '__main__':
-    main(parse_args())
+    main()
