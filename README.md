@@ -6,11 +6,20 @@ Official implementation of [Query2box: Reasoning over Knowledge Graphs in Vector
 
 [Hongyu Ren*](http://hyren.me), [Weihua Hu*](http://web.stanford.edu/~weihuahu/), [Jure Leskovec](https://cs.stanford.edu/people/jure/index.html), ICLR 2020.
 
-## Requirements
+## Installation
+
+To install in development mode, clone from GitHub
+with the following:
+
+```bash
+git clone https://github.com/hyren/query2box
+cd query2box
+pip install --editable .
 ```
-torch==1.2.0
-tensorboadX==1.6
-```
+
+`--editable` means that the code is symlinked into your
+Python's `site-packages` so it doesn't need to be reinstalled
+every time the code is changed.
 
 ## Run
 To reproduce the results on FB15k, FB15k-237 and NELL, the hyperparameters are set in `example.sh`.
