@@ -15,8 +15,8 @@ import torch
 
 from torch.utils.data import DataLoader
 
-from model import Query2box
-from dataloader import *
+from query2box.model import Query2box
+from query2box.dataloader import *
 from tensorboardX import SummaryWriter
 import time
 import pickle
