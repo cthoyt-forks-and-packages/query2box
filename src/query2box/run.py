@@ -504,7 +504,7 @@ def main_helper(args):
             num_params += np.prod(param.size())
     logging.info('Parameter Number: %d' % num_params)
 
-    if args.cuda:
+    if args.cuda and torch.cuda.is_available():
         query2box = query2box.cuda()
     
     if args.do_train:
