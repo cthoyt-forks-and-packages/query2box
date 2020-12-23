@@ -13,6 +13,7 @@ import random
 import numpy as np
 import torch
 
+from tqdm import tqdm, trange
 from torch.utils.data import DataLoader
 
 from query2box.model import Query2box
@@ -828,7 +829,7 @@ def main_helper(args):
         else:
             begin_pq_step = args.max_steps - args.stepsforpath
         #Training Loop
-        for step in range(init_step, args.max_steps):
+        for step in trange(init_step, args.max_steps, desc='Training', unit='step', unit_scale=True):
             # print ("begining training step", step)
             # if step == 100:
             #     exit(-1)
@@ -904,7 +905,7 @@ def main_helper(args):
                 training_logs = []
             
             if args.do_valid and step % args.valid_steps == 0:
-                logging.info('Evaluating on Valid Dataset...')
+                tqdm.write('Evaluating on Valid Dataset...')
                 evaluate_val()
 
         save_variable_list = {
